@@ -1,0 +1,79 @@
+{
+  "id": "1804568",
+  "name": "vue脚手架项目demo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4867092",
+      "name": "收起",
+      "font_class": "shouqi",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "8955407",
+      "name": "Icon - 收起",
+      "font_class": "Icon-shouqi",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "8955408",
+      "name": "Icon - 展开",
+      "font_class": "Icon-zhankai",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "12729177",
+      "name": "展开",
+      "font_class": "zhankai",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "15496",
+      "name": "记录",
+      "font_class": "jilu",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "3755552",
+      "name": "设置",
+      "font_class": "icon-test",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "7551390",
+      "name": "交易记录",
+      "font_class": "jiaoyijilu",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "8423791",
+      "name": "设置",
+      "font_class": "huaban",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "8658525",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "12099623",
+      "name": "设置",
+      "font_class": "huabanfuben",
+      "unicode": "eb7b",
+      "unicode_decimal": 60283
+    }
+  ]
+}
