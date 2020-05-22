@@ -10,10 +10,8 @@
       </ul>
       <div class="list">
         <el-collapse accordion v-model="activeName">
-          <el-collapse-item :name="item" v-for="(item,index) in nameArr" :key="index">
+          <!-- <el-collapse-item :name="item" v-for="(item,index) in nameArr" :key="index">
             <template slot="title">
-              <!-- <span class="checkbox" :class="{'el-icon-folder-add':activeName == item,'el-icon-folder-remove':activeName != item}">
-              </span>-->
               <span
                 class="iconfont"
                 :class="{'icon-zhankai':activeName == item,'icon-shouqi':activeName != item}"
@@ -35,6 +33,8 @@
                         <li>c.)我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。</li>
                         <li>c.)我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。</li>
                         <li>c.)我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。</li>
+                      </ul>
+                      <ul>
                         <li style="line-height:25px;padding:0 10px;">
                           <label>
                             <input type="checkbox">
@@ -69,7 +69,61 @@
                   </div>
                   <div class="liConBottom">
                     <span style="float:left;display:block">备注:</span>
-                    <el-input v-model="input" placeholder="请输入内容"></el-input>
+                    <el-input v-model="input" placeholder="点击填写"></el-input>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </el-collapse-item>-->
+          <el-collapse-item :name="item.title" v-for="(item,index) in list" :key="index">
+            <template slot="title">
+              <span
+                class="iconfont"
+                :class="{'icon-zhankai':activeName == item.title,'icon-shouqi':activeName != item.title}"
+              ></span>
+              {{item.title}}
+            </template>
+            <ul class="tableul">
+              <li v-for="(it,i) in item.listLi" :key="i">
+                <div class="liNum">{{i+1}}</div>
+                <div class="licontent">
+                  <div class="liConTop">
+                    <div class="liIndex">{{it.testIndicators}}</div>
+                    <div class="liUnit">
+                      <ul>
+                        <li
+                          v-for="(li,liIndex) in it.testUnit"
+                          :key="liIndex"
+                        >{{li.title + li.content}}</li>
+                      </ul>
+                      <ul>
+                        <li
+                          style="line-height:25px;padding:0 10px;"
+                          v-for="(li,liIndex) in it.checktestUnit"
+                          :key="liIndex"
+                        >
+                          <label>
+                            <input type="checkbox" v-model="li.checked">
+                            <span>{{li.content}}</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="liResult">
+                      <el-select v-model="it.result" placeholder="请选择">
+                        <el-option
+                          v-for="resultItem in it.resultOption"
+                          :key="resultItem.value"
+                          :label="resultItem.label"
+                          :value="resultItem.value"
+                        ></el-option>
+                      </el-select>
+                    </div>
+                    <div class="liFile">liFile</div>
+                  </div>
+                  <div class="liConBottom">
+                    <span style="float:left;display:block">备注:</span>
+                    <el-input v-model="it.remarks" placeholder="点击填写"></el-input>
                   </div>
                 </div>
               </li>
@@ -86,8 +140,203 @@ export default {
   data() {
     return {
       activeName: "0",
-      // nameArr:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19']
       nameArr: ["1", "2", "3", "4"],
+      list: [
+        {
+          title: "制定和发布",
+          listLi: [
+            {
+              testIndicators: "测试指标",
+              testUnit: [
+                {
+                  title: "a.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "b.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "c.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+              ],
+              checktestUnit: [
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+              ],
+              remarks: "",
+              result: "",
+              resultOption: [
+                {
+                  value: "选项1",
+                  label: "黄金糕",
+                },
+                {
+                  value: "选项2",
+                  label: "双皮奶",
+                },
+                {
+                  value: "选项3",
+                  label: "蚵仔煎",
+                },
+                {
+                  value: "选项4",
+                  label: "龙须面",
+                },
+                {
+                  value: "选项5",
+                  label: "北京烤鸭",
+                },
+              ],
+              enclosure: [],
+            },{
+              testIndicators: "测试指标",
+              testUnit: [
+                {
+                  title: "a.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "b.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "c.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+              ],
+              checktestUnit: [
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+              ],
+              remarks: "",
+              result: "",
+              resultOption: [
+                {
+                  value: "选项1",
+                  label: "黄金糕",
+                },
+                {
+                  value: "选项2",
+                  label: "双皮奶",
+                },
+                {
+                  value: "选项3",
+                  label: "蚵仔煎",
+                },
+                {
+                  value: "选项4",
+                  label: "龙须面",
+                },
+                {
+                  value: "选项5",
+                  label: "北京烤鸭",
+                },
+              ],
+              enclosure: [],
+            }
+          ],
+        },{
+          title: "工程实施",
+          listLi: [
+            {
+              testIndicators: "测试指标",
+              testUnit: [
+                {
+                  title: "a.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "b.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+                {
+                  title: "c.)",
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                },
+              ],
+              checktestUnit: [
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+                {
+                  content:
+                    "我一直相信一句话：当你感到生活困难时，你就是在走上坡路，你就是在成长。",
+                  checked: false,
+                },
+              ],
+              remarks: "",
+              result: "",
+              resultOption: [
+                {
+                  value: "选项1",
+                  label: "黄金糕",
+                },
+                {
+                  value: "选项2",
+                  label: "双皮奶",
+                },
+                {
+                  value: "选项3",
+                  label: "蚵仔煎",
+                },
+                {
+                  value: "选项4",
+                  label: "龙须面",
+                },
+                {
+                  value: "选项5",
+                  label: "北京烤鸭",
+                },
+              ],
+              enclosure: [],
+            },
+          ],
+        },
+      ],
       options: [
         {
           value: "选项1",
@@ -120,12 +369,12 @@ export default {
   methods: {
     getData() {
       // 遍历显示大小写字母
-      for (var i = 0; i < 26; i++) {
-        console.log(String.fromCharCode(65 + i)); //输出A-Z 26个大写字母
-      }
-      for (var i = 0; i < 26; i++) {
-        console.log(String.fromCharCode(97 + i)); //输出a-z 26个小写字母
-      }
+      // for (var i = 0; i < 26; i++) {
+      //   console.log(String.fromCharCode(65 + i)); //输出A-Z 26个大写字母
+      // }
+      // for (var i = 0; i < 26; i++) {
+      //   console.log(String.fromCharCode(97 + i)); //输出a-z 26个小写字母
+      // }
     },
   },
 };
